@@ -18,13 +18,22 @@
 						location.href = "https://www.google.com";
 					}, timeout);
 				})				
+				
+            $("#btLoadAssign").on("click", function() {
+					timeout = parseInt($("#timeout").val())
+					console.log("Redirect to Google with location.assign. Timeout: " + timeout);
+					window.setTimeout(function () {
+						location.assign = "https://www.google.com";
+					}, timeout);
+				})				
 			});		
 		</script>
 	</head>
 	
 	<body>
 		<input type="text" id="timeout" value='5000' />
-		<input type="button" id="btLoadRedirect" value="Load (HTTP redirect)" />
-		<input type="button" id="btLoadClickLink" value="Load (redirect like clicking on a link)" />
+		<input type="button" id="btLoadRedirect" value="Load - location.replace - (HTTP redirect)" />
+		<input type="button" id="btLoadClickLink" value="Load - location.href - (redirect like clicking on a link)" />
+		<input type="button" id="btLoadAssign" value="Load - location.assign" />
 	</body>
 </html>
