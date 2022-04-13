@@ -40,10 +40,17 @@
 					console.log("Redirect to '"+ redirectUrl + "' with location.assign. Timeout: " + timeout);
 					window.setTimeout(function () {
 						try {
-							window.location.assign(redirectUrl).catch(function(err) {
-								console.log(err);
-								console.log(err.name)
-							});
+							var xhr = new XMLHttpRequest();
+
+							xhr.onreadystatechange = function() {
+								if(xhr.readyState == 4 && xhr.status == 200) {
+									window.location.assign(redirectUrl);
+								} else {
+									console.log(xhr.responseURL)
+									console.log(xhr.location)
+								}
+							}
+							
 						} catch (err) {
 							console.log("Error found...")
 							alert(err)
