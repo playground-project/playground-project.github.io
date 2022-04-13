@@ -39,21 +39,19 @@
 					redirectUrl = $("#redirect").val()
 					console.log("Redirect to '"+ redirectUrl + "' with location.assign. Timeout: " + timeout);
 					window.setTimeout(function () {
-						try {
-							var xhr = new XMLHttpRequest();
+						console.log("Starting...")
+						var xhr = new XMLHttpRequest();
 
-							xhr.onreadystatechange = function() {
-								if(xhr.readyState == 4 && xhr.status == 200) {
-									window.location.assign(redirectUrl);
-								} else {
-									console.log(xhr.responseURL)
-									console.log(xhr.location)
-								}
+						xhr.onreadystatechange = function() {
+							console.log("Ready State Change...")
+							if(xhr.readyState == 4 && xhr.status == 200) {
+								console.log("Calling assign...")
+								window.location.assign(redirectUrl);
+							} else {
+								console.log("Didn't call assign...")
+								console.log(xhr.responseURL)
+								console.log(xhr.location)
 							}
-							
-						} catch (err) {
-							console.log("Error found...")
-							alert(err)
 						}
 					}, timeout);
 				})
