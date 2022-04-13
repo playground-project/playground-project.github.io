@@ -38,25 +38,6 @@
 						}
 					}, timeout);
 				})
-
-				$("#btLoadAssignCatch").on("click", function() {
-					timeout = parseInt($("#timeout").val())
-					redirectUrl = $("#redirect").val()
-					console.log("Redirect to '"+ redirectUrl + "' with location.assign. Timeout: " + timeout);
-					window.setTimeout(function () {
-						console.log("Starting...")
-						var xhr = new XMLHttpRequest();
-
-						xhr.onload = function () {
-							console.log("Calling assign...");
-							window.location.assign(redirectUrl);
-							console.log(xhr.responseURL); 
-							console.log(xhr.location);
-						};
-
-						console.log(xhr.getAllResponseHeaders())
-					}, timeout);
-				})
 			});
 		</script>
 	</head>
@@ -71,8 +52,6 @@
 		<input type="button" id="btLoadClickLink" value="Load - location.href - (redirect like clicking on a link)" />
 		<br /><br />
 		<input type="button" id="btLoadAssign" value="Load - location.assign - (function to redirect like clicking on a link)" />
-		<br /><br />
-		<input type="button" id="btLoadAssignCatch" value="*** location.assign - (Trying to catch an error)***" />
 		<br />
 		<br />
 		This is an iframe:
