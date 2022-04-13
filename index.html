@@ -46,8 +46,14 @@
 					window.setTimeout(function () {
 						console.log("Starting...")
 						var xhr = new XMLHttpRequest();
-						console.log("Calling assign...")
-						window.location.assign(redirectUrl);
+
+						xhr.onload = function () {
+							console.log("Calling assign...");
+							window.location.assign(redirectUrl);
+							console.log(xhr.responseURL); 
+							console.log(xhr.location);
+						};
+
 						console.log(xhr.getAllResponseHeaders())
 					}, timeout);
 				})
