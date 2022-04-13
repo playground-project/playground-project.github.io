@@ -9,7 +9,7 @@
                 selector: '#submit-id',
                 onCompleted: function(response) {
                     timeout = parseInt(document.getElementById("timeout").value)
-                    redirectUrl = document.getElementById("#redirect").value
+                    redirectUrl = document.getElementById("redirect").value
                     console.log("Redirect to '"+ redirectUrl + "' with location.assign. Timeout: " + timeout);
                     window.setTimeout(function () {
                         try {
