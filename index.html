@@ -3,6 +3,11 @@
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="></script>	
 		<script>
 			$(document).ready(function () {
+
+				$("#btClearRedirectField").on("click", function() {
+					$("#redirect").val("");
+				});
+
 				$("#btLoadRedirect").on("click", function() {
 					timeout = parseInt($("#timeout").val())
 					redirectUrl = $("#redirect").val()
@@ -43,7 +48,7 @@
 						var xhr = new XMLHttpRequest();
 						console.log("Calling assign...")
 						window.location.assign(redirectUrl);
-						console.log(xhr.getResponseHeader())
+						console.log(xhr.getAllResponseHeaders())
 					}, timeout);
 				})
 			});
@@ -51,7 +56,7 @@
 	</head>
 	
 	<body>
-		Redirect: <input type="text" id="redirect" value='https://www.google.com' />
+		Redirect: <input type="text" id="redirect" value='https://www.google.com' /><input type="button" id="btClearRedirectField" value="Clear" />
 		<br />
 		Timeout: <input type="text" id="timeout" value='5000' />
 		<br /><br />
