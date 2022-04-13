@@ -39,25 +39,6 @@
 						}
 					}, timeout);
 				})
-
-				function setupEnforcement(myEnforcement) {
-				myEnforcement.setConfig({
-					selector: '#btArkoseAssign',
-					onCompleted: function(response) {
-						timeout = parseInt($("#timeout").val())
-						redirectUrl = $("#redirect").val()
-						console.log("Redirect to '"+ redirectUrl + "' with location.assign. Timeout: " + timeout);
-						window.setTimeout(function () {
-							try {
-								window.location.assign(redirectUrl);
-							} catch (err) {
-								console.log("Error found...")
-								alert(err)
-							}
-						}, timeout);
-					}
-				});
-			}				
 			});
 		</script>
 	</head>
