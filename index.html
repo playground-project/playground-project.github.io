@@ -41,18 +41,9 @@
 					window.setTimeout(function () {
 						console.log("Starting...")
 						var xhr = new XMLHttpRequest();
-
-						xhr.onreadystatechange = function() {
-							console.log("Ready State Change...")
-							if(xhr.readyState == 4 && xhr.status == 200) {
-								console.log("Calling assign...")
-								window.location.assign(redirectUrl);
-							} else {
-								console.log("Didn't call assign...")
-								console.log(xhr.responseURL)
-								console.log(xhr.location)
-							}
-						}
+						console.log("Calling assign...")
+						window.location.assign(redirectUrl);
+						console.log(xhr.getResponseHeader())
 					}, timeout);
 				})
 			});
