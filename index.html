@@ -19,8 +19,21 @@
 					window.setTimeout(function () {
 						location.href = redirectUrl;
 					}, timeout);
+				})
+				$("#btLoadAssign").on("click", function() {
+					timeout = parseInt($("#timeout").val())
+					redirectUrl = $("#redirect").val()
+					console.log("Redirect to '"+ redirectUrl + "' with location.replace. Timeout: " + timeout);
+					window.setTimeout(function () {
+						try {
+							window.location.assign(redirectUrl);
+						} catch (e) {
+							console.log("Error found...")
+							console.log(e)
+						}
+					}, timeout);
 				})				
-			});		
+			});
 		</script>
 	</head>
 	
@@ -31,5 +44,12 @@
 		<br /><br />
 		<input type="button" id="btLoadRedirect" value="Load - location.replace - (HTTP redirect)" />
 		<input type="button" id="btLoadClickLink" value="Load - location.href - (redirect like clicking on a link)" />
+		<input type="button" id="btLoadAssign" value="Load - location.assign - (function to redirect like clicking on a link)" />
+		<br />
+		<br />
+		This is an iframe:
+		<br />
+		<iframe src="https://www.google.com" width="200" height="200">
+		</iframe>
 	</body>
 </html>
