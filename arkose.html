@@ -18,7 +18,7 @@
                 onCompleted: function(response) {
                     timeout = parseInt(document.getElementById("timeout").value)
                     redirectUrl = document.getElementById("redirect").value
-                    console.log("Redirect to '"+ redirectUrl + "' with location.assign. Timeout: " + timeout);
+                    console.log("Redirect to '"+ redirectUrl + "' with location.assign. Delay: " + timeout);
                     window.setTimeout(function () {
                         try {
                             window.location.assign(redirectUrl);
@@ -51,7 +51,7 @@
         <form method="post" target="_self">
             Redirect: <input type="text" id="redirect" value='https://www.google.com' /><input type="button" id="btClearRedirectField" value="Clear" />
             <br />
-            Timeout: <input type="text" id="timeout" value='5000' />
+            Delay: <input type="text" id="timeout" value='5000' />
             <br /><br />
           <input type="submit" id="submit-id" onclick="return false;" disabled=true, style="opacity:0.5;" value="Load" />
         </form>
